@@ -10,27 +10,31 @@ public class Movement implements components.Movement_Interface {
     public void spinOnAxis(int toDegree) {
         Motor.A.setSpeed(120);
         Motor.B.setSpeed(120);
-        double deg = (double)toDegree * 1.95;
+        double deg = (double)toDegree * 1.9;
 
-        if(toDegree >= 0){
+        if(toDegree >= 0){  //if counter-clockwise.
             Motor.A.rotate((int)deg, true);
             Motor.B.rotate((int)deg*-1, true);
-        }else{
+        }else{              //else clockwise.
             Motor.A.rotate((int)deg*-1, true);
             Motor.B.rotate((int)deg, true);
         }
     }
 
     @Override
-    public void forwardByDist(int meters) {
-        Motor.A.setSpeed(meters);
-        Motor.B.setSpeed(meters);
-        Motor.A.forward();
-        Motor.B.forward();
-        System.out.println(meters);
-        Delay.msDelay(2000);
-        Motor.A.stop();
-        Motor.B.stop();
+    public void forwardByDist(int cm) {
+        double cmPerDeg = 0.06;
+        double deg = cm/cmPerDeg;
+        Motor.A.setSpeed(300);
+        Motor.B.setSpeed(300);
+        if(cm >= 0){    //if forward.
+            Motor.A.rotate((int)deg, true);
+            Motor.B.rotate((int)deg, true);
+
+        }else{              //else backward.
+            Motor.A.rotate((int)deg, true);
+            Motor.B.rotate((int)deg, true);
+        }
     }
 
     @Override

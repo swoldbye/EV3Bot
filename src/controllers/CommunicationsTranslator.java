@@ -18,16 +18,16 @@ public class CommunicationsTranslator {
                 move.spinOnAxis(90);
                 break;
             case "4":
-                move.spinOnAxis(-180);
+                move.forwardByDist(10);
                 break;
             case "5":
-                move.spinOnAxis(-360);
+                move.forwardByDist(15);
                 break;
             case "6":
-                move.spinOnAxis(-90);
+                move.forwardByDist(180);
                 break;
             case "7":
-                move.backwardByDist(500);
+                move.forwardByDist(500);
                 break;
             case "8":
                 move.backwardByDist(600);
