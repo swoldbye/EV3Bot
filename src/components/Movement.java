@@ -7,12 +7,12 @@ import lejos.utility.Delay;
 public class Movement implements components.Movement_Interface {
 
     @Override
-    public void spinOnAxis(int toDegree) {
+    public void spinOnAxis(int degrees) {
         Motor.A.setSpeed(120);
         Motor.B.setSpeed(120);
-        double deg = (double)toDegree * 1.9;
+        double deg = (double)degrees * 1.9;
 
-        if(toDegree >= 0){  //if counter-clockwise.
+        if(degrees >= 0){  //if counter-clockwise.
             Motor.A.rotate((int)deg, true);
             Motor.B.rotate((int)deg*-1, true);
         }else{              //else clockwise.
